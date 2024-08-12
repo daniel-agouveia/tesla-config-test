@@ -110,12 +110,6 @@ const handlers = [
   }),
 ];
 
-const worker = setupWorker(...handlers);
-
-worker.start({
-  serviceWorker: {
-    url: '/tesla-config-test/mockServiceWorker.js',
-  },
-})
-.then(() => bootstrapApplication(AppComponent, appConfig))
-.catch((err) => console.error(err));
+setupWorker(...handlers).start()
+  .then(() => bootstrapApplication(AppComponent, appConfig))
+  .catch((err) => console.error(err));

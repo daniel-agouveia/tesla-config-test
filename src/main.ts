@@ -4,16 +4,6 @@ import { setupWorker } from 'msw/browser';
 import { AppComponent } from './app/app.component';
 import { appConfig } from './app/app.config';
 
-if (process.env['NODE_ENV'] === 'development') {
-  const { worker } = require('./mocks/browser');
-  worker.start({
-    serviceWorker: {
-      url: '/tesla-config-test/mockServiceWorker.js',
-    },
-  });
-}
-
-
 const handlers = [
   http.get('/options/:id', ({ params }) => {
 
@@ -120,10 +110,12 @@ const handlers = [
   }),
 ];
 
-setupWorker(...handlers).start({
+const worker = setupWorker(...handlers);
+
+worker.start({
   serviceWorker: {
     url: '/tesla-config-test/mockServiceWorker.js',
   },
 })
-  .then(() => bootstrapApplication(AppComponent, appConfig))
-  .catch((err) => console.error(err));
+.then(() => bootstrapApplication(AppComponent, appConfig))
+.catch((err) => console.error(err));

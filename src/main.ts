@@ -110,10 +110,6 @@ const handlers = [
   }),
 ];
 
-setupWorker(...handlers).start({
-  serviceWorker: {
-    url: '/mockServiceWorker.js'
-  }
-})
+setupWorker(...handlers).start()
   .then(() => bootstrapApplication(AppComponent, appConfig))
   .catch((err) => console.error(err));

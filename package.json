@@ -40,7 +40,8 @@
   "msw": {
     "workerDirectory": [
       "src",
-      "docs"
+      "docs",
+      "/tesla-config-test/"
     ]
   }
 }

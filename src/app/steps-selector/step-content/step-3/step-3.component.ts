@@ -39,7 +39,6 @@ export class Step3Component implements OnInit {
       towHitch: this.teslaService.hasTowHitch,
       yoke: this.teslaService.hasYoke
     }
-    debugger;
     this.totalCost = this.completeConfiguration.config?.price! + this.completeConfiguration.color?.price!;
 
     if (this.completeConfiguration.towHitch) {

@@ -10,7 +10,7 @@
   <router-outlet></router-outlet>
   @if (teslaService.selectedModel && teslaService.selectedColor?.code) {
     <div class="image-container">
-      <img [src]="'/assets/colors/' + teslaService.selectedModel + '/' + teslaService.selectedColor?.code +'.jpg'">
+      <img [src]="'.../assets/colors/' + teslaService.selectedModel + '/' + teslaService.selectedColor?.code +'.jpg'">
     </div>
   }
 </div>

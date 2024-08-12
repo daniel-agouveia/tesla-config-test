@@ -41,7 +41,8 @@
     "workerDirectory": [
       "src",
       "docs",
-      "/tesla-config-test/"
+      "/tesla-config-test/",
+      "..\\..\\..\\..\\docs"
     ]
   }
 }

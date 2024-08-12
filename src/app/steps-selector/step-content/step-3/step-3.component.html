@@ -1,0 +1,56 @@
+<h1>Step 3: Summary</h1>
+
+<h2>Your Tesla {{completeConfiguration.model}}</h2>
+
+<div class="summary-container">
+  <div class="info-container">
+    <div class="description-container">
+      <p><b>{{completeConfiguration.config?.description}}</b></p>
+      <p>Range: {{completeConfiguration.config?.range}} miles - Max speed: {{completeConfiguration.config?.speed}}</p>
+    </div>
+
+    <p><b>{{completeConfiguration.color?.description}}</b></p>
+
+    @if (completeConfiguration.towHitch) {
+      <p><b>Tow Hitch Package</b></p>
+    }
+
+    @if (completeConfiguration.yoke) {
+      <p><b>Yoke Package</b></p>
+    }
+  </div>
+
+  <div class="price-container">
+    <div class="description-container">
+      <p>${{completeConfiguration.config?.price | number: '1.2-2'}}</p>
+      <p>&nbsp;</p>
+    </div>
+
+    @if (completeConfiguration.color?.price! > 0) {
+      <p>${{completeConfiguration.color?.price | number: '1.2-2'}}</p>
+    } @else {
+      <p>&nbsp;</p>
+    }
+
+    @if (completeConfiguration.towHitch) {
+      <p>${{'1000' | number: '1.2'}}</p>
+    }
+
+    @if (completeConfiguration.yoke) {
+      <p>${{'1000' | number: '1.2'}}</p>
+    }
+
+
+  </div>
+</div>
+<hr>
+<div class="cost-container">
+  <div class="label-container">
+    <p><b>Total Cost:</b></p>
+  </div>
+
+  <div class="final-price">
+      <p>${{totalCost | number: '1.2-2'}}</p>
+  </div>
+</div>
+<hr>

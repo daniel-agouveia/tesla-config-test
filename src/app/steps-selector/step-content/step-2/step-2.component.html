@@ -1,0 +1,33 @@
+<h1>Step 2: Select your config and options</h1>
+
+<div class="step-form-container">
+  <form [formGroup]="form">
+    <div class="input-container">
+      <label  for="configSelect">Model</label>
+      <select id="configSelect" name="configSelect" [formControl]="configControl" formControlName="config">
+        <option selected [value]="null">Choose...</option>
+        @for (option of teslaService.configList; track $index) {
+          <option [value]="option.id">{{option.description}}</option>
+        }
+      </select>
+    </div>
+
+    @if (configControl.value) {
+      <p>Range: {{teslaService.selectedConfig?.range}} miles - Max speed: {{teslaService.selectedConfig?.speed}} - Cost ${{teslaService.selectedConfig?.price | number: '1.2-2'}}</p>
+    }
+
+    @if (teslaService.selectedOption?.towHitch) {
+      <div class="input-container">
+        <label for="includeTow">Tow hitch?</label>
+        <input type="checkbox" id="includeTow" name="includeTow" [formControl]="towHitchControl" formControlName="towHitch">
+      </div>
+    }
+
+    @if (teslaService.selectedOption?.yoke) {
+      <div class="input-container">
+        <label for="includeYoke">Yoke steering wheel?</label>
+        <input type="checkbox" id="includeYoke" name="includeYoke" [formControl]="yokeControl" formControlName="yoke">
+      </div>
+    }
+  </form>
+</div>

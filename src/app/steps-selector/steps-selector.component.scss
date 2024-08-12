@@ -1,0 +1,33 @@
+.steps-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 45vw;
+}
+
+.step-container {
+  display: flex;
+
+  .step-header {
+    padding: 10px;
+    flex: 1 1 auto;
+    text-align: center;
+    border: 1px solid #343434;
+    background-color: #212121;
+    color: #9C9C9C;
+    cursor: pointer;
+    transition: background 300ms ease-in-out;
+
+    &.active {
+      color: #ffffff;
+    }
+
+    &:hover {
+      background-color: #363636;
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+    }
+  }
+}
+

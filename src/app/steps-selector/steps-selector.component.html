@@ -1,0 +1,16 @@
+<div class="steps-wrapper">
+  <div class="step-container">
+    @for (step of stepsList; track $index) {
+      <div class="step-header" [ngClass]="{'disabled': !step.isValid}" [routerLink]="step.isValid ? [step.url] : ''" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        {{step.name}}
+      </div>
+    }
+  </div>
+
+  <router-outlet></router-outlet>
+  @if (teslaService.selectedModel && teslaService.selectedColor?.code) {
+    <div class="image-container">
+      <img [src]="'/assets/colors/' + teslaService.selectedModel + '/' + teslaService.selectedColor?.code +'.jpg'">
+    </div>
+  }
+</div>

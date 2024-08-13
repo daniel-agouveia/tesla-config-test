@@ -29,8 +29,7 @@
               "assets": [
                 "src/favicon.ico",
                 "src/assets",
-                "src/mockServiceWorker.js",
-                "src/404.html"
+                "src/mockServiceWorker.js"
               ],
               "styles": [
                 "src/styles.scss"

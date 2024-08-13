@@ -10,7 +10,6 @@ export class StepGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const step = route.routeConfig?.path;
-    debugger;
     if (step === 'step-2' && !this.stepValidationService.isStepValid('step2')) {
       this.router.navigate(['/step-1']);
       return false;

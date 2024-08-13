@@ -32,6 +32,8 @@ export class Step3Component implements OnInit {
   }
 
   private fetchSavedData(): void {
+    this.totalCost = 0;
+
     this.completeConfiguration = {
       model: this.teslaService.selectedModel,
       color: this.teslaService.selectedColor,
@@ -39,8 +41,9 @@ export class Step3Component implements OnInit {
       towHitch: this.teslaService.hasTowHitch,
       yoke: this.teslaService.hasYoke
     }
-    this.totalCost = this.completeConfiguration.config?.price! + this.completeConfiguration.color?.price!;
 
+    this.totalCost = this.completeConfiguration.config?.price! + this.completeConfiguration.color?.price!;
+    console.log(this.completeConfiguration.towHitch);
     if (this.completeConfiguration.towHitch) {
       this.totalCost += this.teslaService.towHitchPrice;
     }
@@ -48,7 +51,5 @@ export class Step3Component implements OnInit {
     if (this.completeConfiguration.yoke) {
       this.totalCost += this.teslaService.yokePrice;
     }
-
-    console.log(this.totalCost);
   }
 }

@@ -58,4 +58,8 @@ export class StepsSelectorService {
   public getStepData(step: keyof TeslaFormData): FormStep {
     return this.stepData[step];
   }
+
+  public isStepValid(step: string): boolean {
+    return this.stepStatus.value[step] || false;
+  }
 }

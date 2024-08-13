@@ -43,17 +43,13 @@ export class Step2Component implements OnInit {
 
     this.towHitchControl.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (value) => {
-        if (value) {
-          teslaService.hasTowHitch = value;
-        }
+        teslaService.hasTowHitch = value;
       }
     });
 
     this.yokeControl.valueChanges.pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (value) => {
-        if (value) {
-          teslaService.hasYoke = value;
-        }
+        teslaService.hasYoke = value;
       }
     });
 
